@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Edu</title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+<%= include_gon %>
+ <% if flash[:notice] %>
+  <font color='blue'><b><p><%= flash[:notice] %></p></b></font>
+<% end %>
+    <%= yield %>
+  </body>
+</html>

@@ -1,0 +1,43 @@
+<body><center>
+<h1>Add a School Details</h1>
+<%= form_with scope: :school,url:schools_path,local:true do |form| %>
+	<% if @school.errors.any? %>
+		<div id="error_explanation">
+			<h2>
+			<%= pluralize(@school.errors.count,"error") %>
+			prohibited this article from being saved
+			</h2>
+			<ul>
+				<% @school.errors.full_messages.each do |msg| %>
+				<li><%= msg %></li>
+				<% end %>
+			</ul>
+		</div>
+	<% end %>
+	
+	<p>
+		
+		<%= form.text_field:board,placeholder: "Select a Board" %>
+	</p>
+	<p>
+		
+		<%= form.text_field:area,placeholder: "Select a Area" %>
+	</p>
+	<p>
+		
+		<%= form.text_field:name,placeholder: "School Name" %>
+	</p>
+	<p>
+		
+		<%= form.text_area:address,placeholder: "Address" %>
+	</p>
+	<p>
+		
+		<%= form.text_field:phno,placeholder: "Contact No" %>
+	</p>
+	<p>
+		<%= form.submit %><br>
+	</p>
+<% end %>
+</center>
+</body>

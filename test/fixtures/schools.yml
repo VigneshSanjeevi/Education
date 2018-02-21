@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  board: MyString
+  area: MyString
+  name: MyString
+  address: MyString
+  phno: MyString
+
+two:
+  board: MyString
+  area: MyString
+  name: MyString
+  address: MyString
+  phno: MyString
