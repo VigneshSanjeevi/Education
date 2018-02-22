@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  devise_for :admins
   get 'schools/index'
 post 'schools/index'
 
@@ -17,7 +18,8 @@ post 'schools/buttons'
   get 'schools/destroy'
 
 	resource:schools
-	root 'schools#index'
+  root 'schools#index'
+  
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

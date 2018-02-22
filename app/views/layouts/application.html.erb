@@ -10,6 +10,8 @@
 
   <body>
 <%= include_gon %>
+
+<p class="alert"><%= alert %></p>
  <% if flash[:notice] %>
   <font color='blue'><b><p><%= flash[:notice] %></p></b></font>
 <% end %>

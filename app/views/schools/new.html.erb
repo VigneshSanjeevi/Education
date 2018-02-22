@@ -1,6 +1,6 @@
 <body><center>
 <h1>Add a School Details</h1>
-<%= form_with scope: :school,url:schools_path,local:true do |form| %>
+<%= form_with scope: :school,url:schools_path,html: { multipart: true },local:true do |form| %>
 	<% if @school.errors.any? %>
 		<div id="error_explanation">
 			<h2>
@@ -15,29 +15,35 @@
 		</div>
 	<% end %>
 	
-	<p>
+	<table cellspacing=10 cellpadding=10 align=center>
+	<tr><td colspan=2>
 		
 		<%= form.text_field:board,placeholder: "Select a Board" %>
-	</p>
-	<p>
+	</td></tr>
+	<tr><td colspan=2>
 		
 		<%= form.text_field:area,placeholder: "Select a Area" %>
-	</p>
-	<p>
+	</td></tr>
+	<tr><td>
+	   Select the Logo </td><td><%= form.file_field :image %>
+  
+  </td></tr>
+	<tr><td colspan=2>
 		
 		<%= form.text_field:name,placeholder: "School Name" %>
-	</p>
-	<p>
+	</td></tr>
+	<tr><td colspan=2>
 		
 		<%= form.text_area:address,placeholder: "Address" %>
-	</p>
-	<p>
+	</td></tr>
+	<tr><td colspan=2>
 		
 		<%= form.text_field:phno,placeholder: "Contact No" %>
-	</p>
-	<p>
+	</td></tr>
+	<tr><td v>
 		<%= form.submit %><br>
-	</p>
+	</td></tr></table>
+
 <% end %>
 </center>
 </body>

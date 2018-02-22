@@ -5,12 +5,14 @@
 
 <table cellpadding='10' cellspacing='20' align='center'>
   <tr bgcolor='lime'>
-    <th>Board</th><th>Area</th><th>School Name</th><th>Address</th><th>Contact No</th>
+    <th>Board</th><th>Area</th><th>Logo</th><th>School Name</th><th>Address</th><th>Contact No</th>
   </tr>
-<% @school.each do |obj| %>
+<% @school.each do |obj|
+  im=obj.image;
+  %>
     <tr>
 	
-      <td><%= obj.board %></td> <td><%= obj.area %></td> <td><%= obj.name %></td> <td><%= obj.address %></td><td><%= obj.phno %></td>   
+      <td><%= obj.board %></td> <td><%= obj.area %></td><td><%= image_tag(im, :size => "130x130") %></td> <td><%= obj.name %></td> <td><%= obj.address %></td><td><%= obj.phno %></td>   
 
 </tr>
 

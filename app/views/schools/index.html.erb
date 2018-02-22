@@ -25,16 +25,22 @@
 
     <% end %>
 </div>
+<% if current_admin.present? -%>
+
+<%= link_to "Sign out", destroy_admin_session_path, :method => :delete %>
+<% else -%>
+<%= link_to_if(@current_admin.nil?, "Login to add comment", new_admin_session_path) %>
+<% end %>
 <table cellpadding='10' cellspacing='20' align='center'>
   <tr bgcolor='lime'>
-    <th>Board</th><th>Area</th><th>School Name</th><th>Address</th><th>Contact No</th>
+    <th>Board</th><th>Area</th><th>Logo</th><th>School Name</th><th>Address</th><th>Contact No</th>
   </tr>
   <% @school.each do |obj| 
-
+im=obj.image;
 %>
     <tr>
 	
-      <td><%= obj.board %></td> <td><%= obj.area %></td> <td><%= obj.name %></td> <td><%= obj.address %></td><td><%= obj.phno %></td>
+      <td><%= obj.board %></td> <td><%= obj.area %></td> <td><%= image_tag(im, :size => "100x100") %></td> <td><%= obj.name %></td> <td><%= obj.address %></td><td><%= obj.phno %></td>
 
 </tr>
 

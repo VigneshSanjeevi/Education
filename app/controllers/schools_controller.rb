@@ -1,8 +1,6 @@
 class SchoolsController < ApplicationController
   def index
 	@school=School.all
-	
-  
   end
 
   def new
@@ -17,7 +15,6 @@ class SchoolsController < ApplicationController
       render "new"
     end     
   end
-
 
   def buttons
 	
@@ -69,7 +66,7 @@ class SchoolsController < ApplicationController
   end
 		private
 		  def school_params
-		    params.require(:school).permit(:board, :area, :name, :address, :phno)
+		    params.require(:school).permit(:board, :area, :name, :address, :phno, :image)
 		  end
 
 end
