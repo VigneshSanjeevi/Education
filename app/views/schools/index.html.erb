@@ -18,10 +18,11 @@
 
 <div align='center'>
 
-  <%= form_with model: @school, url: { action: "buttons" }, :html => {:id => "myform"} do |form| %>
+  <%= form_tag(schools_path, method: :get) do %>
 <%= select_tag :Board, options_for_select(@school.map {|t| [ t.board, t.board ]}.uniq), include_blank: "Search Board Wise", :onchange => "this.form.submit()" %>
 <%= select_tag :Area, options_for_select(@school.map {|t| [ t.area, t.area ]}.uniq), include_blank: "Search Area Wise", :onchange => "this.form.submit()" %>
     <%= select_tag :School, options_for_select(@school.map {|t| [ t.name, t.name ]}.uniq), include_blank: "Search School Wise", :onchange => "this.form.submit()" %>
+
     <% end %>
 </div>
 <table cellpadding='10' cellspacing='20' align='center'>
@@ -34,7 +35,6 @@
     <tr>
 	
       <td><%= obj.board %></td> <td><%= obj.area %></td> <td><%= obj.name %></td> <td><%= obj.address %></td><td><%= obj.phno %></td>
-    
 
 </tr>
 

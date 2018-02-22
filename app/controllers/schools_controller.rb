@@ -1,8 +1,8 @@
 class SchoolsController < ApplicationController
   def index
-	@school=School.all	
-	# gon.your_variable = @school
-#	@school=School.all
+	@school=School.all
+	
+  
   end
 
   def new
@@ -17,31 +17,55 @@ class SchoolsController < ApplicationController
       render "new"
     end     
   end
-  def buttons
-	#@schools=School.all
-	@board='Anglo Indian'
-	#@board = params[:myform][:Board].reject(&:blank?) unless params[:myform].nil?
- 	#@board = params['myform']['Board']
-	@school = School.find_by_sql ["SELECT * FROM schools WHERE board = ?", @board]
-	if @school.empty?
-   flash[:notice] = 'No Results'
-   redirect_to root_url
-	else
-	flash[:notice] = @school
-   redirect_to "/schools/index"
-  end
-  end
 
+
+  def buttons
+	
+  end
 
   def show
-	@school = School.all
+	 @board = params[:Board]
+	@area = params[:Area]
+	@school_name =  params[:School]
+	 
+	@school = if @board && @area && @school_name
+	    School.where('board LIKE ? AND area LIKE ? AND name LIKE ?', "%#{params[:Board]}%","%#{params[:Area]}%","%#{params[:School]}%")
+	else if @board && @area 
+	    School.where('board LIKE ? AND area LIKE ?', "%#{params[:Board]}%","%#{params[:Area]}%")
+	else if @board && @school_name
+	    School.where('board LIKE ? AND name LIKE ?', "%#{params[:Board]}%","%#{params[:School]}%")
+	else if @area && @school_name
+	    School.where('board LIKE ? AND name LIKE ?', "%#{params[:Area]}%","%#{params[:School]}%")
+	else if @board
+             School.where('board LIKE ?', "%#{params[:Board]}%")
+	else if @area
+             School.where('area LIKE ?', "%#{params[:Area]}%")
+	else if @school_name
+             School.where('name LIKE ?', "%#{params[:School]}%")
+  	else
+	    School.all
+  	end
+	end
+	end
+	end
+	end
+	end
+	end
   end
+	
+  
+
+  
 
   def edit
 	@school= School.find_by id:params[:id]
   end
 
   def destroy
+@school = School.find(params[:id])
+	 @school.destroy
+ 
+	 redirect_to schools_path
   end
 		private
 		  def school_params
