@@ -1,15 +1,15 @@
-
 <script type="text/javascript">
-  function selectwise(value)
-  {
-      var board=document.getElementById("Board").value;
-	alert(board);
-      var area = document.getElementById("Area").value;
-	alert(area);
-      var school = document.getElementById("School").value;	
-	alert(school);
-  }
-</script>
+        function noBack()
+         {
+             window.history.forward()
+         }
+        noBack();
+        window.onload = noBack;
+        window.onpageshow = function(evt) { if (evt.persisted) noBack() }
+        window.onunload = function() { void (0) }
+    </script>
+<% if current_admin.present? -%>
+
 <div id="grnd">
 <center>
 <h1>Chennai Schools</h1>
@@ -25,11 +25,10 @@
 
     <% end %>
 </div>
-<% if current_admin.present? -%>
+
 
 <%= link_to "Sign out", destroy_admin_session_path, :method => :delete %>
-<% else -%>
-<%= link_to_if(@current_admin.nil?, "Login to add comment", new_admin_session_path) %>
+
 <% end %>
 <table cellpadding='10' cellspacing='20' align='center'>
   <tr bgcolor='lime'>

@@ -1,2 +1,28 @@
-<h1>Schools#edit</h1>
-<p>Find me in app/views/schools/edit.html.erb</p>
+<center><h1>School Details </h1>
+
+
+
+
+<table cellpadding='10' cellspacing='20' align='center'>
+  <tr bgcolor='lime'>
+    <th>Board</th><th>Area</th><th>Logo</th><th>School Name</th><th>Address</th><th>Contact No</th>
+  </tr>
+<% @school.each do |obj|
+  im=obj.image;
+  %>
+    <tr>
+	
+      <td><%= obj.board %></td> <td><%= obj.area %></td><td><%= image_tag(im, :size => "130x130") %></td> <td><%= obj.name %></td> <td><%= obj.address %></td><td><%= obj.phno %></td> 
+      <td><%= link_to 'Show', schools_path(obj) %></td>
+      <td><%= link_to 'Edit', edit_schools_path(obj) %></td>
+       <td><%= link_to 'Destroy', schools_path(obj),
+              method: :delete,
+              data: { confirm: 'Are you sure?' } %></td>  
+
+</tr>
+
+<% end %>
+  
+
+
+</table>

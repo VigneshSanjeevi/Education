@@ -55,14 +55,15 @@ class SchoolsController < ApplicationController
   
 
   def edit
-	@school= School.find_by id:params[:id]
+	@school= School.all
   end
 
   def destroy
-@school = School.find(params[:id])
-	 @school.destroy
- 
-	 redirect_to schools_path
+@school = School.find_by_id(params[:id])
+if @school.present?
+	@school.destroy
+end
+redirect_to root_url
   end
 		private
 		  def school_params
