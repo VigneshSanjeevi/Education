@@ -1,21 +1,18 @@
-<script type="text/javascript">
-        function noBack()
-         {
-             window.history.forward()
-         }
-        noBack();
-        window.onload = noBack;
-        window.onpageshow = function(evt) { if (evt.persisted) noBack() }
-        window.onunload = function() { void (0) }
-    </script>
-<% if current_admin.present? -%>
+
 
 <div id="grnd">
 <center>
 <h1>Chennai Schools</h1>
 </center>
-</div>
+<% if current_admin.present? -%>
+<%= render 'schools/form' %>
+<%= link_to "Sign out ", destroy_admin_session_path, :method => :delete %> |
 
+<% else -%>
+<%= link_to_if(@current_admin.nil?, "Admin Login", new_admin_session_path) %>
+<% end %>
+</div>
+<br><br>
 <div align='center'>
 
   <%= form_tag(schools_path, method: :get) do %>
@@ -27,9 +24,9 @@
 </div>
 
 
-<%= link_to "Sign out", destroy_admin_session_path, :method => :delete %>
 
-<% end %>
+
+
 <table cellpadding='10' cellspacing='20' align='center'>
   <tr bgcolor='lime'>
     <th>Board</th><th>Area</th><th>Logo</th><th>School Name</th><th>Address</th><th>Contact No</th>

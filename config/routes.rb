@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  get 'deivse/users'
+
+  devise_for :users
   devise_for :admins
   get 'schools/index'
 post 'schools/index'
