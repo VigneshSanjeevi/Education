@@ -1,9 +1,10 @@
 class SchoolsController < ApplicationController
+	before_action :authenticate_admin!, only: [:new,:edit]
   def index
-	@school=School.all
+	@school=School.all	
   end
 
-  def new
+	def new
 	@school=School.new	
   end
   def create
@@ -59,11 +60,12 @@ class SchoolsController < ApplicationController
   end
 
   def destroy
-@school = School.find_by_id(params[:id])
+		@school=School.find_by_id params[:id]
+		#@school = School.find params[:id]
 if @school.present?
 	@school.destroy
 end
-redirect_to root_url
+redirect_to "/schools/edit"
   end
 		private
 		  def school_params

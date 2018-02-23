@@ -1,5 +1,6 @@
 <center><h1>School Details </h1>
-<table cellpadding='10' cellspacing='20' align='center'>
+<%= link_to 'Back' ,schools_index_url %>
+<table cellpadding='5' cellspacing='5' align='center'>
   <tr bgcolor='lime'>
     <th>Board</th><th>Area</th><th>Logo</th><th>School Name</th><th>Address</th><th>Contact No</th>
   </tr>
@@ -7,12 +8,10 @@
   im=obj.image;
   %>
     <tr>	
-      <td><%= obj.board %></td> <td><%= obj.area %></td><td><%= image_tag(im, :size => "130x130") %></td> <td><%= obj.name %></td> <td><%= obj.address %></td><td><%= obj.phno %></td> 
-      <td><%= link_to 'Show', schools_path(obj.id) %></td>
-      <td><%= link_to 'Edit', edit_schools_path(obj.id) %></td>
-       <td><%= link_to 'Destroy', schools_path(obj.id),
-              method: :delete,
-              data: { confirm: 'Are you sure?' } %></td>  
+      <td><%= obj.board %></td> <td><%= obj.area %></td><td><%= image_tag(im, :size => "50x50") %></td> <td><%= obj.name %></td> <td><%= obj.address %></td><td><%= obj.phno %></td> 
+      
+       <td><%= link_to 'Delete', :action => :destroy, :id => obj.id  %></td>  
 </tr>
 <% end %>
 </table>
+

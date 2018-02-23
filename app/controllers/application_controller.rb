@@ -2,7 +2,7 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   before_action :store_user_location!, if: :storable_location?
   #before_action :authenticate_user!
-  #before_action :authenticate_admin!
+  
 before_action :configure_permitted_parameters, if: :devise_controller?
   private
     def storable_location?

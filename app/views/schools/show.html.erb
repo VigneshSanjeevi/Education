@@ -3,7 +3,7 @@
 
 <%= link_to 'Back', schools_index_url %>
 
-<table cellpadding='10' cellspacing='20' align='center'>
+<table cellpadding='5' cellspacing='5' align='center'>
   <tr bgcolor='lime'>
     <th>Board</th><th>Area</th><th>Logo</th><th>School Name</th><th>Address</th><th>Contact No</th>
   </tr>
@@ -12,7 +12,7 @@
   %>
     <tr>
 	
-      <td><%= obj.board %></td> <td><%= obj.area %></td><td><%= image_tag(im, :size => "130x130") %></td> <td><%= obj.name %></td> <td><%= obj.address %></td><td><%= obj.phno %></td>   
+      <td><%= obj.board %></td> <td><%= obj.area %></td><td><%= image_tag(im, :size => "50x50") %></td> <td><%= obj.name %></td> <td><%= obj.address %></td><td><%= obj.phno %></td>   
 
 </tr>
 

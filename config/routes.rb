@@ -1,24 +1,26 @@
 Rails.application.routes.draw do
-  get 'deivse/users'
+  #get 'deivse/users'
 
   devise_for :users
   devise_for :admins
   get 'schools/index'
 post 'schools/index'
 
-  get 'schools/new'
+  #get 'schools/new'
 post 'schools/new'
 
-  get 'schools/show'
+  #get 'schools/show'
 post 'schools/show'
 
-  get 'schools/edit'
+ # get 'schools/edit'
 post 'schools/edit'
 
-get 'schools/buttons'
+#get 'schools/buttons'
 post 'schools/buttons'
 
-  get 'schools/destroy'
+ get 'schools/destroy'
+  
+  #map.destroy, '/school/destroy/:id' :controller => :school, :action => :destroy
 
 	resource:schools
   root 'schools#index'
