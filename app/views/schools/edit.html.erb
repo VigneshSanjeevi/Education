@@ -9,7 +9,7 @@
   %>
     <tr>	
       <td><%= obj.board %></td> <td><%= obj.area %></td><td><%= image_tag(im, :size => "50x50") %></td> <td><%= obj.name %></td> <td><%= obj.address %></td><td><%= obj.phno %></td> 
-      
+      <td><%= link_to 'Edit', :action => :edit_schools, :id => obj.id  %></td>  
        <td><%= link_to 'Delete', :action => :destroy, :id => obj.id  %></td>  
 </tr>
 <% end %>

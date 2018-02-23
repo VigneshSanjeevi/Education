@@ -5,9 +5,11 @@ Rails.application.routes.draw do
   devise_for :admins
   get 'schools/index'
 post 'schools/index'
-
+get 'schools/edit_schools'
   #get 'schools/new'
 post 'schools/new'
+patch 'schools/update'
+get 'schools/update'
 
   #get 'schools/show'
 post 'schools/show'

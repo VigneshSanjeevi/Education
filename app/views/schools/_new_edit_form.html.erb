@@ -1,0 +1,38 @@
+<body><center>
+
+<%= form_for @school, url: {action: "update"} do |form| %>
+	
+	
+	<table cellspacing=10 cellpadding=10 align=center>
+	<tr><td colspan=2>
+		
+		<%= form.text_field:board,placeholder: "Select a Board" %>
+	</td></tr>
+	<tr><td colspan=2>
+		
+		<%= form.text_field:area,placeholder: "Select a Area" %>
+	</td></tr>
+	<tr><td>
+	   Select the Logo </td><td><%= form.file_field :image %>
+  
+  </td></tr>
+	<tr><td colspan=2>
+		
+		<%= form.text_field:name,placeholder: "School Name" %>
+	</td></tr>
+	<tr><td colspan=2>
+		
+		<%= form.text_area:address,placeholder: "Address" %>
+	</td></tr>
+	<tr><td colspan=2>
+		
+		<%= form.text_field:phno,placeholder: "Contact No" %>
+	</td></tr>
+	<tr><td v>
+		<%= form.submit %><br>
+	</td></tr></table>
+
+<% end %>
+<%= link_to 'Back', schools_path %>
+</center>
+</body>

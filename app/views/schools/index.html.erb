@@ -7,7 +7,6 @@
 <% if current_admin.present? -%>
 <%= render 'schools/form' %>
 <%= link_to "Sign out ", destroy_admin_session_path, :method => :delete %> |
-
 <% else -%>
 <%= link_to_if(@current_admin.nil?, "Admin Login", new_admin_session_path) %>
 <% end %>
@@ -15,12 +14,14 @@
 <br><br>
 <div align='center'>
 
-  <%= form_tag(schools_path, method: :get) do %>
-<%= select_tag :Board, options_for_select(@school.map {|t| [ t.board, t.board ]}.uniq), include_blank: "Search Board Wise", :onchange => "this.form.submit()" %>
-<%= select_tag :Area, options_for_select(@school.map {|t| [ t.area, t.area ]}.uniq), include_blank: "Search Area Wise", :onchange => "this.form.submit()" %>
-    <%= select_tag :School, options_for_select(@school.map {|t| [ t.name, t.name ]}.uniq), include_blank: "Search School Wise", :onchange => "this.form.submit()" %>
+<%= form_tag(root_path, method: :get) do %>
 
-    <% end %>
+<%= select_tag :Board, options_for_select(@schools.map {|t| [ t.board, t.board ]}.uniq,params[:Board]), include_blank: "Search Board Wise" %>
+<%= select_tag :Area, options_for_select(@schools.map {|t| [ t.area, t.area ]}.uniq,params[:Area]), include_blank: "Search Area Wise" %>
+<%= text_field_tag :School, nil, :autocomplete => 'on', :placeholder => 'Enter the School Name ',:value => params[:School] %>
+
+<%= submit_tag "Search", data: { disable_with: "Please wait.." } %>
+<% end %>
 </div>
 
 
@@ -36,7 +37,7 @@ im=obj.image;
 %>
     <tr>
 	
-      <td><%= obj.board %></td> <td><%= obj.area %></td> <td><%= image_tag(im, :size => "100x100") %></td> <td><%= obj.name %></td> <td><%= obj.address %></td><td><%= obj.phno %></td>
+      <td><%= obj.board %></td> <td><%= obj.area %></td> <td><%= image_tag(im, :size => "50x50") %></td> <td><%= obj.name %></td> <td><%= obj.address %></td><td><%= obj.phno %></td>
 
 </tr>
 

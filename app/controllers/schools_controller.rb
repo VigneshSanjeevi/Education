@@ -1,28 +1,8 @@
 class SchoolsController < ApplicationController
 	before_action :authenticate_admin!, only: [:new,:edit]
   def index
-	@school=School.all	
-  end
-
-	def new
-	@school=School.new	
-  end
-  def create
-
-    @school=School.new(school_params)  
-    if @school.save
-      redirect_to "/schools/new", notice: "School added successsfully"     
-    else
-      render "new"
-    end     
-  end
-
-  def buttons
-	
-  end
-
-  def show
-	 @board = params[:Board]
+	@schools=School.all	
+	@board = params[:Board]
 	@area = params[:Area]
 	@school_name =  params[:School]
 	 
@@ -50,10 +30,37 @@ class SchoolsController < ApplicationController
 	end
 	end
   end
-	
-  
 
-  
+	def new
+	@school=School.new	
+	end
+	
+  def create
+    @school=School.new(school_params)  
+    if @school.save
+      redirect_to "/schools/new", notice: "School added successsfully"     
+    else
+      render "new"
+    end     
+  end
+
+
+  def show
+	 @school=School.all
+  end
+	
+	def edit_schools
+		@school=School.find_by_id params[:id]		
+	end
+
+	def update
+		@school = School.find_by_id params[:id]
+		if @school.update(school_params)		
+	    redirect_to "/schools/edit"
+	  else
+	    render 'edit'
+	  end
+	end
 
   def edit
 	@school= School.all
