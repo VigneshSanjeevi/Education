@@ -1,3 +1,50 @@
-<center><h1>Edit School</h1></centeR>
-<hr size='5' color='lime'>
-<%= render 'new_edit_form' %>
+<body><center>
+
+
+		<%= form_for @school, :url => {:action => "update", :id => @school.id, :controller => "schools"} do |form| %>
+        <% if @school.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%= pluralize(@school.errors.count, "error") %> prohibited
+        this article from being saved:
+      </h2>
+      <ul>
+        <% @school.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+	<table cellspacing=10 cellpadding=10 align=center>
+	<tr><td colspan=2>
+		
+		<%= form.text_field:board,placeholder: "Select a Board" %>
+	</td></tr>
+	<tr><td colspan=2>
+		
+		<%= form.text_field:area,placeholder: "Select a Area" %>
+	</td></tr>
+	<tr><td>
+	   Select the Logo </td><td><%= form.file_field :image %>
+  
+  </td></tr>
+	<tr><td colspan=2>
+		
+		<%= form.text_field:name,placeholder: "School Name" %>
+	</td></tr>
+	<tr><td colspan=2>
+		
+		<%= form.text_area:address,placeholder: "Address" %>
+	</td></tr>
+	<tr><td colspan=2>
+		
+		<%= form.text_field:phno,placeholder: "Contact No" %>
+	</td></tr>
+	<tr><td>
+		<%= form.submit %><br>
+	</td></tr></table>
+
+<% end %>
+<%= link_to 'Back', schools_path %>
+</center>
+</body>

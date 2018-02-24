@@ -54,12 +54,11 @@ class SchoolsController < ApplicationController
 	end
 
 	def update
-		@school = School.find_by_id params[:id]
-		if @school.update(school_params)		
-	    redirect_to "/schools/edit"
-	  else
-	    render 'edit'
-	  end
+		@school = School.find_by_id(params[:id])
+		if @school.update(school_params)
+			flash[:notice] = "Update Sucessfully"	     
+		end
+		redirect_to "/schools/edit"	 
 	end
 
   def edit
