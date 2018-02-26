@@ -1,7 +1,7 @@
 class School < ApplicationRecord
-    has_many:branchs
+    has_many:branches
     #accepts_nested_attributes_for :branchs
-    accepts_nested_attributes_for :branchs, allow_destroy: true
+    accepts_nested_attributes_for :branches, allow_destroy: true
 
     has_attached_file :image ,styles: { medium: "300x300", thumb: "100x100" }
     # Validate content type

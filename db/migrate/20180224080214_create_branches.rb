@@ -3,9 +3,7 @@ class CreateBranches < ActiveRecord::Migration[5.1]
     create_table :branches do |t|
       t.string :area
       t.string :address
-      t.string :phno
-      
-
+      t.string :phno            
       t.timestamps
     end
   end

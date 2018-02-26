@@ -33,8 +33,8 @@ class SchoolsController < ApplicationController
 
 	def new
 	@school=School.new	
-	#@school.build_branch
-	4.times { @school.branchs.build }
+	@school.branches.build
+	#3.times { @school.branches.build }
 	end
 	
   def create
@@ -77,7 +77,7 @@ redirect_to "/schools/edit"
   end
 		private
 		  def school_params
-		    params.require(:school).permit(:board, :area, :name, :address, :phno, :image , branch_attributes: [:id, :area, :address, :phno])
+		    params.require(:school).permit(:board, :area, :name, :address, :phno, :image , branches_attributes: [:school_id, :area, :address, :phno, :_destroy])
 		  end
 
 end

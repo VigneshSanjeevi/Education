@@ -40,7 +40,8 @@
 		
 		<%= form.text_field:phno,placeholder: "Contact No" %>
 	</td></tr>
-	 <%= form.fields_for :branch do |branch_form| %>
+	 
+	 <%= form.fields_for :branches, Branch.new do |branch_form| %>
 	<tr><td colspan=2>Other Branch</td></tr>
 		<tr><td colspan=2>
 		
