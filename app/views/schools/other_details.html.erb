@@ -1,0 +1,33 @@
+<center><h1>Other Branch Details </h1></center>
+<table cellpadding='5' cellspacing='5' align='center'>
+  <tr bgcolor='lime'>
+    <th>Board</th><th>Logo</th><th>School Name</th>
+  </tr>
+  
+    <tr>
+	
+      <td><%= @school.board %></td> <td><%= image_tag(@school.image, :size => "50x50") %></td> <td><%= @school.name %></td>
+
+</td> 
+</tr>
+
+
+</table>
+<table>
+  <tr bgcolor='lime'>
+    <th>Branch Details</th>
+  </tr>
+  
+    <tr>
+	
+      <td>
+      Area : <%= @branch.area %>
+      <br>
+      Address : <%= @branch.address %>
+      <br>
+      Contact No : <%= @branch.phno %>
+       </td> 
+
+</tr>
+</table>
+<%= link_to 'Back', schools_index_path %>

@@ -13,6 +13,8 @@ patch 'schools/update'
 get 'schools/update'
 put 'schools/update'
 
+get 'schools/other_details'
+post 'schools/other_details'
   #get 'schools/show'
 post 'schools/show'
 

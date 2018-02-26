@@ -30,7 +30,7 @@
 
 <table cellpadding='5' cellspacing='5' align='center'>
   <tr bgcolor='lime'>
-    <th>Board</th><th>Area</th><th>Logo</th><th>School Name</th><th>Address</th><th>Contact No</th>
+    <th>Board</th><th>Area</th><th>Logo</th><th>School Name</th><th>Address</th><th>Contact No</th><th>Other Branch Details</th>
   </tr>
   <% @school.each do |obj| 
 im=obj.image;
@@ -39,7 +39,13 @@ im=obj.image;
 	
       <td><%= obj.board %></td> <td><%= obj.area %></td> <td><%= image_tag(im, :size => "50x50") %></td> <td><%= obj.name %></td> <td><%= obj.address %></td><td><%= obj.phno %></td>
 
+<td><%= link_to 'Show', :action => :other_details, :id => obj.id  %>
+
+</td> 
 </tr>
 
   <% end %>
 </table>
+
+
+

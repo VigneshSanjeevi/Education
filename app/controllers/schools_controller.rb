@@ -46,17 +46,24 @@ class SchoolsController < ApplicationController
     end     
   end
 
+ def other_details
+@school = School.find_by(id: params[:id])
+  @branch = Branch.find_by(id: params[:id])
+	
+ end
 
   def show
 	 @school=School.all
   end
 	
 	def edit_schools
-		@school=School.find_by_id params[:id]		
+		@school=School.find_by id:params[:id]		
 	end
+	
+
 
 	def update
-		@school = School.find_by_id(params[:id])
+		@school = School.find_by id:params[:id]
 		if @school.update(school_params)
 			flash[:notice] = "Update Sucessfully"	     
 		end
@@ -77,7 +84,7 @@ redirect_to "/schools/edit"
   end
 		private
 		  def school_params
-		    params.require(:school).permit(:board, :area, :name, :address, :phno, :image , branches_attributes: [:school_id, :area, :address, :phno, :_destroy])
+		    params.require(:school).permit(:board, :area, :name, :address, :phno, :image , branches_attributes: [:id, :area, :address, :phno, :_destroy])
 		  end
 
 end

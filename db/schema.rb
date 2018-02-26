@@ -36,7 +36,6 @@ ActiveRecord::Schema.define(version: 20180226043058) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "school_id"
-    t.index ["school_id"], name: "index_branches_on_school_id", unique: true
   end
 
   create_table "schools", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
